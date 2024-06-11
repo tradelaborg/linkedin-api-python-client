@@ -144,7 +144,7 @@ class BatchCreateResponseFormatter(BaseResponseFormatter[BatchCreateResponse]):
             [cls.format_batch_create_result(result) for result in elements]
             if elements
             else None
-         )
+        )
 
         return BatchCreateResponse(
             status_code=response.status_code,
