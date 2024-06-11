@@ -140,11 +140,11 @@ class BatchCreateResponseFormatter(BaseResponseFormatter[BatchCreateResponse]):
     def format_response(cls, response: Response) -> BatchCreateResponse:
         json_data = response.json()
         elements = json_data.get("elements", None)
-        batch_create_results = [
-            cls.format_batch_create_result(result) for result in elements
+        batch_create_results = (
+            [cls.format_batch_create_result(result) for result in elements]
             if elements
             else None
-        ]
+         )
 
         return BatchCreateResponse(
             status_code=response.status_code,
