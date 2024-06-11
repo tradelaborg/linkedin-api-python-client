@@ -142,6 +142,8 @@ class BatchCreateResponseFormatter(BaseResponseFormatter[BatchCreateResponse]):
         elements = json_data.get("elements", None)
         batch_create_results = [
             cls.format_batch_create_result(result) for result in elements
+            if elements
+            else None
         ]
 
         return BatchCreateResponse(
